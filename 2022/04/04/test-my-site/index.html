@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="一、卸载docker-desktop软件参考文档：https:&#x2F;&#x2F;www.thinbug.com&#x2F;q&#x2F;37465526点击docker-desktop图标，选择：troebleshoot。选择“Uninstall”，完成卸载。卸载完成之后，发现docker命令也不存在了，下面开始安装docker-desktop的替代工具。 安装docker-desktop的替代方案参考文档https:&#x2F;&#x2F;ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker-desktop替换方案">
+<meta property="og:url" content="http://example.com/2022/04/04/test-my-site/index.html">
+<meta property="og:site_name" content="Living">
+<meta property="og:description" content="一、卸载docker-desktop软件参考文档：https:&#x2F;&#x2F;www.thinbug.com&#x2F;q&#x2F;37465526点击docker-desktop图标，选择：troebleshoot。选择“Uninstall”，完成卸载。卸载完成之后，发现docker命令也不存在了，下面开始安装docker-desktop的替代工具。 安装docker-desktop的替代方案参考文档https:&#x2F;&#x2F;ar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750409378-3b222239-9601-4f9b-97fb-d8c3a7badc65.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=391&id=u4cc2b1a2&originHeight=782&originWidth=654&originalType=binary&ratio=1&rotation=0&showTitle=false&size=189171&status=done&style=none&taskId=ua56d90d0-d098-4299-8128-800eabc5b6d&title=&width=327">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750447361-965f1e2d-3586-4c55-9a26-d038cf227324.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=487&id=u58b8a16d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=974&originWidth=2188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=155538&status=done&style=none&taskId=ued54dd50-0139-4b3e-9ed2-6cde05fdc58&title=&width=1094">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750549827-37b066d6-93aa-49a8-84d9-c649103b02b3.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=141&id=ub4af87e4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=282&originWidth=464&originalType=binary&ratio=1&rotation=0&showTitle=false&size=40370&status=done&style=none&taskId=u8e51b3c0-f8c9-4670-9699-a8f92fe8510&title=&width=232">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751565056-b262ed77-7aea-48a6-a59e-2e73f8c70bf0.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=516&id=u1a2d36d4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1032&originWidth=1826&originalType=binary&ratio=1&rotation=0&showTitle=false&size=454704&status=done&style=none&taskId=u74920857-1c63-4879-9ee2-0ba4d258649&title=&width=913">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751766422-e2ba046e-5a5b-46e3-9c1d-6af0fc749e52.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=46&id=u44bd5a7b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=92&originWidth=1512&originalType=binary&ratio=1&rotation=0&showTitle=false&size=56581&status=done&style=none&taskId=ucdd2586d-1c4f-4b10-90a6-74755e730c2&title=&width=756">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751871230-ca600f50-02a2-40bb-b925-2c02095d3212.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=124&id=u001a981d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=758&originalType=binary&ratio=1&rotation=0&showTitle=false&size=38958&status=done&style=none&taskId=u4d84be11-6879-47ff-9481-dcc8f1d45d9&title=&width=379">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751970914-e19a791a-75db-4398-b402-fde2bbeeab9f.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=63&id=uea167e56&margin=%5Bobject%20Object%5D&name=image.png&originHeight=126&originWidth=826&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32210&status=done&style=none&taskId=u304289dd-d5b4-47cc-aa59-4b6b3f99b17&title=&width=413">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647752082302-c1fc4b12-38eb-418d-b84d-f7f7cfb25247.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=158&id=ub1b92424&margin=%5Bobject%20Object%5D&name=image.png&originHeight=316&originWidth=2098&originalType=binary&ratio=1&rotation=0&showTitle=false&size=199349&status=done&style=none&taskId=u25281db8-69a8-47b7-b58d-62c2900fbe6&title=&width=1049">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753899541-adecebd2-2625-480f-bb01-1665b9c586df.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=580&id=ua83dd1e0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1160&originWidth=2110&originalType=binary&ratio=1&rotation=0&showTitle=false&size=941124&status=done&style=none&taskId=ud0aa3dd7-ed89-473e-9e66-69f8e3c767a&title=&width=1055">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647752694692-2bc217f8-005e-4d10-9bf3-e65372d0e779.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=45&id=u7f100eb8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=90&originWidth=902&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29362&status=done&style=none&taskId=ub7503da8-1193-412f-86fa-2fc176e2bbf&title=&width=451">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753570396-fb5e6cca-0eec-4bc4-b320-dbf9afcad482.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=155&id=u9bcdffab&margin=%5Bobject%20Object%5D&name=image.png&originHeight=310&originWidth=1024&originalType=binary&ratio=1&rotation=0&showTitle=false&size=121331&status=done&style=none&taskId=ub310f458-6dad-452e-a129-95a3bcdd06d&title=&width=512">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753754278-ca60336a-ea47-429c-a5c7-4af0b4837315.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=491&id=u805eded0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=982&originWidth=2118&originalType=binary&ratio=1&rotation=0&showTitle=false&size=816143&status=done&style=none&taskId=uf4d17635-9f61-451e-a4f5-daf47f99e9c&title=&width=1059">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754034393-4bea473c-ef3f-43f6-9846-2a3d3f329f90.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=248&id=u408a1ee2&margin=%5Bobject%20Object%5D&name=image.png&originHeight=496&originWidth=1050&originalType=binary&ratio=1&rotation=0&showTitle=false&size=150964&status=done&style=none&taskId=u272bcf37-3dd6-4bbc-90e6-b8e9456970b&title=&width=525">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754232333-04987f86-508b-420d-8f9c-37430bda8bba.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=83&id=u69acd34f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=166&originWidth=1372&originalType=binary&ratio=1&rotation=0&showTitle=false&size=49488&status=done&style=none&taskId=u93937728-e848-4c1c-a63d-ba533cb3df1&title=&width=686">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754795479-b401561f-f7b8-4ca6-83e0-0f4b63af63da.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=161&id=u3cfb345f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=322&originWidth=1572&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78319&status=done&style=none&taskId=ua982bfd9-5a32-441f-8d08-2a21f2819e8&title=&width=786">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647755453272-c056fb40-4f65-4e0c-8fbf-e90c787bb124.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=160&id=u0ca3809b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=320&originWidth=1568&originalType=binary&ratio=1&rotation=0&showTitle=false&size=110671&status=done&style=none&taskId=u7840e53c-c673-4a08-a1e4-305a3898483&title=&width=784">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647755501689-c5adc1e1-0fdb-493c-b125-654bc5f85b4f.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=435&id=uc6e243ce&margin=%5Bobject%20Object%5D&name=image.png&originHeight=870&originWidth=2292&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160789&status=done&style=none&taskId=u1fbdd8df-0ae2-4c88-b2ca-2c09a709680&title=&width=1146">
+<meta property="article:published_time" content="2022-04-04T10:07:44.000Z">
+<meta property="article:modified_time" content="2022-04-04T14:31:57.533Z">
+<meta property="article:author" content="monkeyMrs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750409378-3b222239-9601-4f9b-97fb-d8c3a7badc65.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=391&id=u4cc2b1a2&originHeight=782&originWidth=654&originalType=binary&ratio=1&rotation=0&showTitle=false&size=189171&status=done&style=none&taskId=ua56d90d0-d098-4299-8128-800eabc5b6d&title=&width=327">
+
+<link rel="canonical" href="http://example.com/2022/04/04/test-my-site/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>docker-desktop替换方案 | Living</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Living</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/04/test-my-site/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="monkeyMrs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Living">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker-desktop替换方案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-04 18:07:44 / 修改时间：22:31:57" itemprop="dateCreated datePublished" datetime="2022-04-04T18:07:44+08:00">2022-04-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <meta name="referrer" content="no-referrer" />
+
+<p>一、卸载docker-desktop软件<br>参考文档：<a target="_blank" rel="noopener" href="https://www.thinbug.com/q/37465526">https://www.thinbug.com/q/37465526</a><br>点击docker-desktop图标，选择：troebleshoot。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750409378-3b222239-9601-4f9b-97fb-d8c3a7badc65.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=391&id=u4cc2b1a2&originHeight=782&originWidth=654&originalType=binary&ratio=1&rotation=0&showTitle=false&size=189171&status=done&style=none&taskId=ua56d90d0-d098-4299-8128-800eabc5b6d&title=&width=327" alt="image.png"><br>选择“Uninstall”，完成卸载。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750447361-965f1e2d-3586-4c55-9a26-d038cf227324.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=487&id=u58b8a16d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=974&originWidth=2188&originalType=binary&ratio=1&rotation=0&showTitle=false&size=155538&status=done&style=none&taskId=ued54dd50-0139-4b3e-9ed2-6cde05fdc58&title=&width=1094" alt="image.png"><br>卸载完成之后，发现docker命令也不存在了，下面开始安装docker-desktop的替代工具。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647750549827-37b066d6-93aa-49a8-84d9-c649103b02b3.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=141&id=ub4af87e4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=282&originWidth=464&originalType=binary&ratio=1&rotation=0&showTitle=false&size=40370&status=done&style=none&taskId=u8e51b3c0-f8c9-4670-9699-a8f92fe8510&title=&width=232" alt="image.png"></p>
+<p>安装docker-desktop的替代方案<br>参考文档<br><a target="_blank" rel="noopener" href="https://arnon.me/2021/09/replace-docker-with-minikube/">https://arnon.me/2021/09/replace-docker-with-minikube/</a><br><a target="_blank" rel="noopener" href="https://yanbin.blog/replace-docker-desktop-with-hyperkit-minikube/#more-11697">https://yanbin.blog/replace-docker-desktop-with-hyperkit-minikube/#more-11697</a></p>
+<p>相关替代方案：<br>1、dockercli+hyperkit+minikube<br>2、podman<br>3、lima：<a target="_blank" rel="noopener" href="https://mdnice.com/writing/d6e0cdeac23a4bf29673b0bbd936737f">https://mdnice.com/writing/d6e0cdeac23a4bf29673b0bbd936737f</a><br>4、mircoK8s：<a target="_blank" rel="noopener" href="https://microk8s.io/">https://microk8s.io/</a></p>
+<p>方案一：dockercli+hyperkit+minikube<br>1、安装docker cli，因为之前卸载过docker所以重新安装docker cli</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew reinstall docker</span><br><span class="line">brew install docker-compose #选择性安装，docker命令管理工具</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751565056-b262ed77-7aea-48a6-a59e-2e73f8c70bf0.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=516&id=u1a2d36d4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1032&originWidth=1826&originalType=binary&ratio=1&rotation=0&showTitle=false&size=454704&status=done&style=none&taskId=u74920857-1c63-4879-9ee2-0ba4d258649&title=&width=913" alt="image.png"><br>docker cli安装成功之后，发现docker engine并没有启动。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751766422-e2ba046e-5a5b-46e3-9c1d-6af0fc749e52.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=46&id=u44bd5a7b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=92&originWidth=1512&originalType=binary&ratio=1&rotation=0&showTitle=false&size=56581&status=done&style=none&taskId=ucdd2586d-1c4f-4b10-90a6-74755e730c2&title=&width=756" alt="image.png"></p>
+<p>安装hyperkit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install hyperkit</span><br><span class="line">hyperkit -v</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751871230-ca600f50-02a2-40bb-b925-2c02095d3212.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=124&id=u001a981d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=758&originalType=binary&ratio=1&rotation=0&showTitle=false&size=38958&status=done&style=none&taskId=u4d84be11-6879-47ff-9481-dcc8f1d45d9&title=&width=379" alt="image.png"></p>
+<p>安装minikube，一个k8s集群快速搭建和管理的工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install minikube</span><br><span class="line">minikube version</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647751970914-e19a791a-75db-4398-b402-fde2bbeeab9f.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=63&id=uea167e56&margin=%5Bobject%20Object%5D&name=image.png&originHeight=126&originWidth=826&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32210&status=done&style=none&taskId=u304289dd-d5b4-47cc-aa59-4b6b3f99b17&title=&width=413" alt="image.png"></p>
+<p>启动k8s集群</p>
+<blockquote>
+<p>minikube start –driver=hyperkit #(driver类型：docker，hyperkit,virtualbox)</p>
+</blockquote>
+<p>遇到错误：由于之前driver指定的docker，现在需要更新为hyperkit，所以删除之前的配置：</p>
+<blockquote>
+<p>minikube delete</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647752082302-c1fc4b12-38eb-418d-b84d-f7f7cfb25247.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=158&id=ub1b92424&margin=%5Bobject%20Object%5D&name=image.png&originHeight=316&originWidth=2098&originalType=binary&ratio=1&rotation=0&showTitle=false&size=199349&status=done&style=none&taskId=u25281db8-69a8-47b7-b58d-62c2900fbe6&title=&width=1049" alt="image.png"><br>错误2: 发现机器上没有安装docker-machine-driver-hyperkit，安装集群的时候，本身会下载这个工具，但是被墙下载失败，所以需要安装：</p>
+<blockquote>
+<p>brew install docker-machine-driver-hyperkit<br>sudo chown root:wheel /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit<br>sudo chmod u+s /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753899541-adecebd2-2625-480f-bb01-1665b9c586df.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=580&id=ua83dd1e0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1160&originWidth=2110&originalType=binary&ratio=1&rotation=0&showTitle=false&size=941124&status=done&style=none&taskId=ud0aa3dd7-ed89-473e-9e66-69f8e3c767a&title=&width=1055" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647752694692-2bc217f8-005e-4d10-9bf3-e65372d0e779.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=45&id=u7f100eb8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=90&originWidth=902&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29362&status=done&style=none&taskId=ub7503da8-1193-412f-86fa-2fc176e2bbf&title=&width=451" alt="image.png"><br>重新安装docker-machine-driver-hyperkit，查看版本信息时，发现docker-machine-driver-hyperkiti不是一个二进制命令，是一个docker machine的插件，可以通过一下方式查看版本信息。</p>
+<blockquote>
+<p>docker-machine version</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753570396-fb5e6cca-0eec-4bc4-b320-dbf9afcad482.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=155&id=u9bcdffab&margin=%5Bobject%20Object%5D&name=image.png&originHeight=310&originWidth=1024&originalType=binary&ratio=1&rotation=0&showTitle=false&size=121331&status=done&style=none&taskId=ub310f458-6dad-452e-a129-95a3bcdd06d&title=&width=512" alt="image.png"><br>重新执行：minikube start –driver=hyperkit，虽然还是会下载插件：docker-machine-driver-hyperkit。但是下载失败之后，不影响集群的启动（此时k8s 集群的相关镜像：minikube-v1.22.0.iso，在第一次执行minikue start时已经下载好了）。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647753754278-ca60336a-ea47-429c-a5c7-4af0b4837315.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=491&id=u805eded0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=982&originWidth=2118&originalType=binary&ratio=1&rotation=0&showTitle=false&size=816143&status=done&style=none&taskId=uf4d17635-9f61-451e-a4f5-daf47f99e9c&title=&width=1059" alt="image.png"></p>
+<p>下载kubernetes的客户端：kubectl</p>
+<blockquote>
+<p>brew install kubernetes-cli<br>brew link kubernetes-cli<br>kubectl get pod -n kube-system</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754034393-4bea473c-ef3f-43f6-9846-2a3d3f329f90.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=248&id=u408a1ee2&margin=%5Bobject%20Object%5D&name=image.png&originHeight=496&originWidth=1050&originalType=binary&ratio=1&rotation=0&showTitle=false&size=150964&status=done&style=none&taskId=u272bcf37-3dd6-4bbc-90e6-b8e9456970b&title=&width=525" alt="image.png"><br>至此kubernetes集群已经搭建成功，但是docker ps 还是已经报错，没有连接到docker engine上。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754232333-04987f86-508b-420d-8f9c-37430bda8bba.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=83&id=u69acd34f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=166&originWidth=1372&originalType=binary&ratio=1&rotation=0&showTitle=false&size=49488&status=done&style=none&taskId=u93937728-e848-4c1c-a63d-ba533cb3df1&title=&width=686" alt="image.png"><br>minikube会启动docker-daemon的服务，在终端执行：eval $(minikube -p minikube docker-env)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  ~  minikube docker-env</span><br><span class="line"> </span><br><span class="line">export DOCKER_TLS_VERIFY=&quot;1&quot;</span><br><span class="line">export DOCKER_HOST=&quot;tcp://192.168.64.4:2376&quot;  // 本地minikube的ip，192.168.64.4</span><br><span class="line">export DOCKER_CERT_PATH=&quot;/Users/**/.minikube/certs&quot;</span><br><span class="line">export MINIKUBE_ACTIVE_DOCKERD=&quot;minikube&quot;</span><br><span class="line"></span><br><span class="line"># To point your shell to minikube&#x27;s docker-daemon, run:</span><br><span class="line"># eval $(minikube -p minikube docker-env)</span><br><span class="line"></span><br><span class="line"> ~  eval $(minikube -p minikube docker-env)</span><br></pre></td></tr></table></figure>
+<p>在终端执行：docker ps ，可以看到当前运行的容器（同时其他命令也是可以使用，build，）。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647754795479-b401561f-f7b8-4ca6-83e0-0f4b63af63da.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=161&id=u3cfb345f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=322&originWidth=1572&originalType=binary&ratio=1&rotation=0&showTitle=false&size=78319&status=done&style=none&taskId=ua982bfd9-5a32-441f-8d08-2a21f2819e8&title=&width=786" alt="image.png"><br>每次打开终端是，默认初始化一些docker的环境变量，需要吧eval命令添加到:.zshrc文件中。</p>
+<blockquote>
+<p>echo ‘eval $(minikube -p minikube docker-env)’ &gt;&gt; .zshrc</p>
+</blockquote>
+<p>docker-desktop UI的替代品：kubernate dashboard</p>
+<blockquote>
+<p>minikube dashboard –url</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647755453272-c056fb40-4f65-4e0c-8fbf-e90c787bb124.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=160&id=u0ca3809b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=320&originWidth=1568&originalType=binary&ratio=1&rotation=0&showTitle=false&size=110671&status=done&style=none&taskId=u7840e53c-c673-4a08-a1e4-305a3898483&title=&width=784" alt="image.png">通过浏览器访问proxy的链接，里面展示了集群里所有的资源信息，比docker-desktop好用太多了。<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22705423/1647755501689-c5adc1e1-0fdb-493c-b125-654bc5f85b4f.png#clientId=u3e235adc-ed16-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=435&id=uc6e243ce&margin=%5Bobject%20Object%5D&name=image.png&originHeight=870&originWidth=2292&originalType=binary&ratio=1&rotation=0&showTitle=false&size=160789&status=done&style=none&taskId=u1fbdd8df-0ae2-4c88-b2ca-2c09a709680&title=&width=1146" alt="image.png"></p>
+<p>但是docker pull 镜像的时候遇到报错：net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>相关的issue：<a target="_blank" rel="noopener" href="https://github.com/kubernetes/minikube/issues/4589">https://github.com/kubernetes/minikube/issues/4589</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/04/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">monkeyMrs</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">monkeyMrs</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
